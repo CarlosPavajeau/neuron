@@ -33,3 +33,7 @@
 
 # Folders
 [Bb]uild
+
+# Others
+.gradle
+.gradle/
