@@ -3,6 +3,7 @@
 //
 
 #include <random>
+#include <utility>
 #include "neuron.h"
 
 neuron::neuron(int inputsNumber, float training_rate) {
@@ -39,7 +40,7 @@ void neuron::learn(std::vector<float> inputs, float expectedOutput) {
 }
 
 float neuron::output(std::vector<float> inputs) {
-    return predict(next_input(inputs));
+    return predict(next_input(std::move(inputs)));
 }
 
 float neuron::predict(float input) {
@@ -64,5 +65,5 @@ float neuron::get_sill() const {
 }
 
 float neuron::get_error() const {
-    return (_errors.size() > 0) ? _errors.back() : 1;
+    return (!_errors.empty()) ? _errors.back() : 1;
 }
