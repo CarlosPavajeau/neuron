@@ -12,7 +12,7 @@ class neuron {
 public:
     explicit neuron(int inputsNumber, float training_rate = 0.3);
 
-    void learn();
+    void init();
     void learn(std::vector<float> inputs, float expectedOutput);
 
     float output(std::vector<float> inputs);

@@ -9,10 +9,10 @@ neuron::neuron(int inputsNumber, float training_rate) {
     _previous_weights = std::vector<float>(inputsNumber);
     _training_rate = training_rate;
     _weights = std::vector<float>(inputsNumber);
-    learn();
+    init();
 }
 
-void neuron::learn() {
+void neuron::init() {
     std::random_device random_device;
     std::mt19937 random_engine(random_device());
     std::uniform_real_distribution<float> distribution(-1, 1);
